@@ -1,0 +1,13 @@
+/node_modules
+/dist
+/build
+/public
+/src
+/test
+/docs
+/examples
+/scripts
+/templates
+/utils
+/webpack.config.js
+/webpack.config.js.map
