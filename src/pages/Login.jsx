@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 
 export default function Login() {
@@ -52,6 +52,12 @@ export default function Login() {
             className="w-full btn-primary py-3 disabled:opacity-50">
             {loading ? 'Injira...' : 'Injira'}
           </button>
+          <p className="text-center text-sm text-gray-600">
+            No account yet?{' '}
+            <Link to="/register" className="font-medium text-primary-600 hover:text-primary-700">
+              Register
+            </Link>
+          </p>
         </form>
       </div>
     </div>
