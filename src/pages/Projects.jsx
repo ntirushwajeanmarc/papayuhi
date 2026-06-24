@@ -12,7 +12,10 @@ export default function Projects() {
 
   const handleSubmit = async e => {
     e.preventDefault()
-    await api.post('/projects/', form)
+    await api.post('/projects/', {
+      ...form,
+      budget_total: form.budget_total === '' ? null : Number(form.budget_total)
+    })
     api.get('/projects/').then(r => setItems(r.data))
   }
 

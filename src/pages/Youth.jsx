@@ -12,7 +12,10 @@ export default function Youth() {
 
   const handleCreate = async e => {
     e.preventDefault()
-    await api.post('/youth/trainings/', form)
+    await api.post('/youth/trainings/', {
+      ...form,
+      capacity: form.capacity === '' ? null : Number(form.capacity)
+    })
     api.get('/youth/trainings/').then(r => setTrainings(r.data))
   }
 

@@ -10,7 +10,10 @@ export default function Documents() {
 
   const handleSubmit = async e => {
     e.preventDefault()
-    await api.post('/documents/', form)
+    await api.post('/documents/', {
+      ...form,
+      file_size_kb: form.file_size_kb === '' ? null : Number(form.file_size_kb)
+    })
     api.get('/documents/').then(r => setItems(r.data))
   }
 
